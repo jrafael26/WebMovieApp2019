@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebApplicationApp.Models.Customers>
+
+<h1 class="page-header">My customers!!!</h1>
+<div class="container">
+    @*<div class="row col-md-6 col-md-offset-2 custyle">*@
+    <div>
+        <table class="table table-striped custab">
+            <thead>
+                <a href="/Customers/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new customer</a>
+                <tr>
+
+                <tr>
+                    <th>Customers</th>
+                    <th>Membership Type</th>
+                    <th>Is Subscribed To Newsletter</th>
+                    <th class="text-right">Action</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.Name, "Edit", new { id = item.Id }) </td>
+                    <td>@Html.DisplayFor(modelItem => item.MembershipType.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsSubscribedToNewsletter)</td>
+                    <td class="text-right">
+                        @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
+                        @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
+                        @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplicationApp.Models.Genre>
+
+
+
+<h1 class="page-header">Genre!!!</h1>
+<p>
+    <a href="/Genres/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new genre</a>
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Genre</th>
+        <th class="text-right">Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Edit", new { id = item.Id })
+            </td>
+            <td class="text-right">
+                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
+                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
+                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+
+</table>

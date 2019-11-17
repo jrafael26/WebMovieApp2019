@@ -1,0 +1,51 @@
+﻿@model WebApplicationApp.Models.MembershipType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MembershipType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignUpFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignUpFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DurationInMonths)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DurationInMonths)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscountRate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sn btn-info" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-sn btn-danger" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sn btn-success" })
+</p>

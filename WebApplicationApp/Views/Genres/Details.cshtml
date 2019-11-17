@@ -1,0 +1,21 @@
+﻿@model WebApplicationApp.Models.Genre
+
+<div>
+    <h4>Genre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sn btn-info" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-sn btn-danger" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sn btn-success" })
+</p>

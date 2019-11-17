@@ -1,0 +1,59 @@
+﻿@model WebApplicationApp.Models.ViewModels.CustomerFormViewModel
+
+
+@using (Html.BeginForm("Save", "Customers")) 
+{
+   
+    
+    <div class="form-horizontal">
+        <h4>Customers</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customers.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Customers.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Customers.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customers.MembershipTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Customers.MembershipTypeId,
+                    new SelectList(Model.MembershipTypes, "Id", "Name"), "Selecciona un tipo de membresía",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Customers.MembershipTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customers.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Customers.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Customers.Birthdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(model => model.Customers.IsSubscribedToNewsletter) Suscrito a la revista?
+            </label>
+        </div>
+
+        @Html.HiddenFor(model => model.Customers.Id)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn  btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sn btn-success"})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
