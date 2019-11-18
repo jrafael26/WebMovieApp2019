@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<WebApplicationApp.Models.Movie>
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+<br />
 
-    <h1 class="page-header">My movies!!!</h1>
+<h1 class="page-header">My movies!!!</h1>
 <p>
     <a href="/Movies/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new movie</a>
 </p>
@@ -17,25 +19,25 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-    @Html.ActionLink(item.Name, "Edit", new { id = item.Id })
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Genre.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReleaseDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NumberAvailable)
-    </td>
-    <td class="text-right">
-        @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
-        @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
-        @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Edit", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberAvailable)
+            </td>
+            <td class="text-right">
+                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
+                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
+                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
+            </td>
+        </tr>
     }
 
 </table>

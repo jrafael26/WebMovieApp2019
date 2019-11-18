@@ -13,8 +13,8 @@ namespace WebApplicationApp
             "~/Scripts/bootstrap.js",
             "~/scripts/bootbox.js",
             "~/Scripts/respond.js",
-            "~/scripts/datatables/jquery.datatables.js",
-            "~/scripts/datatables/datatables.bootstrap.js",
+            "~/scripts/DataTables/jquery.datatables.js",
+            "~/scripts/DataTables/datatables.bootstrap.js",
             "~/scripts/typeahead.bundle.js",
             "~/scripts/toastr.js"
           ));
@@ -35,7 +35,7 @@ namespace WebApplicationApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                      "~/Content/bootstrap_superhero.css",
                      "~/Content/bootstrap-theme.css",
-                     "~/content//css/datatables.bootstrap.css",
+                     "~/content/DataTables/css/datatables.bootstrap.css",
                      "~/content/typeahead.css",
                      "~/content/toastr.css",
                      "~/Content/site.css"));
