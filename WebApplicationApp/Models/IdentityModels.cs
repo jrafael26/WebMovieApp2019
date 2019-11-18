@@ -30,6 +30,8 @@ namespace WebApplicationApp.Models
         public DbSet<Genre> Genres { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Rental> Rentals { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

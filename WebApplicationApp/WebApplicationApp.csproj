@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201911161722360_SeedGenreTable.Designer.cs">
       <DependentUpon>201911161722360_SeedGenreTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911181155058_AddRentalTable.cs" />
+    <Compile Include="Migrations\201911181155058_AddRentalTable.Designer.cs">
+      <DependentUpon>201911181155058_AddRentalTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -230,6 +234,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="Models\ViewModels\MovieFormViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -361,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911161722360_SeedGenreTable.resx">
       <DependentUpon>201911161722360_SeedGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181155058_AddRentalTable.resx">
+      <DependentUpon>201911181155058_AddRentalTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
