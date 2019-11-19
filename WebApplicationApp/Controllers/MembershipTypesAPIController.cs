@@ -31,6 +31,19 @@ namespace WebApplicationApp.Controllers
             return Ok(membershipType);
         }
 
+        //// GET: api/MembershipTypesAPI/5
+        //[ResponseType(typeof(MembershipType))]
+        //public IHttpActionResult GetMembershipType(string name)
+        //{
+        //    MembershipType membershipType = db.Memberships.Find(id);
+        //    if (membershipType == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(membershipType);
+        //}
+
         // PUT: api/MembershipTypesAPI/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMembershipType(byte id, MembershipType membershipType)
