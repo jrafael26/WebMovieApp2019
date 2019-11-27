@@ -1,0 +1,77 @@
+﻿@model WebApplicationApp.Models.Rental
+
+@using (Html.BeginForm("UnRent","Rentals", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Rentals</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+<div class="bg-danger active">
+    @ViewBag.Error
+</div>
+        <div class="form-group row">
+            <div class="col-md-1">
+                @Html.Label("Customer")
+            </div>
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Customer.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Customer.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-1">
+                @Html.Label("Movie")
+            </div>
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Movie.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-1">
+                @Html.Label("Date Rented")
+            </div>
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.DateRented, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateRented, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-1">
+                @Html.Label("Date Returned")
+            </div>
+            <div class="col-md-11">
+                @Html.TextBoxFor(model => model.DateReturned, new { @class = "form-control",@id="Fecha2" })
+                @Html.ValidationMessageFor(model => model.DateReturned, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary" id="btnSave">Submit</button>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.theme.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var fechadev = "";
+            $("#Fecha2").datepicker({
+                dateFormat: "d/m/yy"
+            });
+
+        });
+
+    </script>
+}
