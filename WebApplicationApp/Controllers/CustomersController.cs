@@ -7,6 +7,8 @@ using WebApplicationApp.Models.ViewModels;
 
 namespace WebApplicationApp.Controllers
 {
+    [Authorize(Roles = RoleName.CanManageCustomers)]
+    [Authorize(Roles = RoleName.CanManageRentals)]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;

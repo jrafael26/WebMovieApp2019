@@ -6,7 +6,7 @@ using WebApplicationApp.Models.ViewModels;
 
 namespace WebApplicationMovie.Controllers
 {
-
+    [Authorize(Roles = RoleName.CanManageMovies)]
     public class MoviesController : Controller
     {
         private ApplicationDbContext _context;
@@ -15,6 +15,8 @@ namespace WebApplicationMovie.Controllers
         {
             _context = new ApplicationDbContext();
         }
+
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(_context.Movies.
@@ -99,6 +101,7 @@ namespace WebApplicationMovie.Controllers
             return View("Edit", viewModel);
         }
 
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

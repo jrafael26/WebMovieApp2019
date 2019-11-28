@@ -1,0 +1,30 @@
+﻿@model WebApplicationApp.Models.ViewModels.UserView
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles del usuario: @Model.Name</h2>
+
+<p>
+    @Html.ActionLink("Agregar Roles", "AddRole", new { userID = Model.UserID },new { @class = "btn btn-info" })
+    @Html.ActionLink("Regresar a la lista", "", "Users",new { @class= "btn btn-success"})
+</p>
+<br />
+<hr />
+<table class="table table-bordered table-hover">
+
+    @for (int i = 0; i < Model.Roles.Count; i++)
+
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Roles[i].Name)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { userID = Model.UserID, roleID = Model.Roles[i].RoleID }, new { @class="btn btn-danger btn-sn"})
+            </td>
+        </tr>
+    }
+
+</table>

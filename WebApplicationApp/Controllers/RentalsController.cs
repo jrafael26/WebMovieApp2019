@@ -11,6 +11,8 @@ using System.Net;
 
 namespace WebApplicationApp.Controllers
 {
+    [Authorize(Roles = RoleName.CanManageMovies)]
+    [Authorize(Roles = RoleName.CanManageRentals)]
     public class RentalsController : Controller
     {
         private ApplicationDbContext _context;

@@ -4,6 +4,7 @@ using WebApplicationApp.Models;
 
 namespace WebApplicationApp.Controllers
 {
+    [Authorize(Roles = RoleName.CanManageMovies)]
     public class GenresController : Controller
     {
         private ApplicationDbContext _context;

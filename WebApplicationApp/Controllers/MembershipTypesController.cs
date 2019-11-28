@@ -6,6 +6,8 @@ using WebApplicationApp.Models;
 
 namespace WebApplicationApp.Controllers
 {
+    [Authorize(Roles = RoleName.CanManageMovies)]
+    [Authorize(Roles = RoleName.CanManageCustomers)]
     public class MembershipTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -50,42 +50,5 @@ namespace WebApplicationApp.Controllers.api
             return Ok();
         }
 
-        [HttpPost]
-        public IHttpActionResult UnRent(Rental newRental)
-        {
-            var viewRental = _context.Rentals
-                .Include(c => c.Customer)
-                .Include(m => m.Movie)
-                .ToList();
-
-            Rental rent = viewRental.Find(r => r.Id == newRental.Id);
-            //var rental = _context.Rentals.Find(model.Id);
-            if (rent == null || rent.DateRented ==null)
-            {
-                return BadRequest("Invalid Operetions.");
-            }
-            //Verificar que lo encuentra
-            var customer = _context.Customers.Single(
-                c => c.Id == rent.Customer.Id);
-
-            var movies = _context.Movies.Find(rent.Movie.Id);
-
-            if (movies == null)
-            {
-                return BadRequest("Movie is not available.");
-            }
-
-            if (movies.NumberAvailable > movies.NumberInStock)
-            {
-                return BadRequest("Invalid Operetions.");
-            }
-
-            movies.NumberAvailable++;
-
-            _context.Entry(movies).State = EntityState.Modified;
-            _context.SaveChanges();
-
-            return Ok();
-        }
     }
 }

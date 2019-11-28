@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplicationApp.Models.ViewModels.UserView>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Administración de Permisos</h2>
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Roles", "Roles", new { userID = item.UserID }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
